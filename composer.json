@@ -1,0 +1,53 @@
+{
+    "name": "xiaohuyun/xhysanctum",
+    "description": "xiaohuyun Sanctum provides a featherweight authentication system for SPAs and simple APIs.",
+    "keywords": ["xiaohuyun", "xhysanctum", "auth"],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/feng2009/xhysanctum/issues",
+        "source": "https://github.com/feng2009/xhysanctum"
+    },
+    "authors": [
+        {
+            "name": "wuchen",
+            "email": "lyf1918@163.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "ext-json": "*",
+        "illuminate/contracts": "^6.9|^7.0",
+        "illuminate/database": "^6.9|^7.0",
+        "illuminate/support": "^6.9|^7.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.0",
+        "orchestra/testbench": "^4.0|^5.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Xiaohuyun\\xhysanctum\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Xiaohuyun\\xhysanctum\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Xiaohuyun\\xhysanctum\\SanctumServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
