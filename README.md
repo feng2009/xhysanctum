@@ -1,15 +1,10 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-sanctum.svg"></p>
+<p align="center">xiaohuyun xhysanctum</p>
 
-<p align="center">
-<a href="https://github.com/laravel/sanctum/actions"><img src="https://github.com/laravel/sanctum/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/sanctum"><img src="https://poser.pugx.org/laravel/sanctum/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/sanctum"><img src="https://poser.pugx.org/laravel/sanctum/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/sanctum"><img src="https://poser.pugx.org/laravel/sanctum/license.svg" alt="License"></a>
-</p>
+
 
 ## Introduction
 
-Laravel Sanctum provides a featherweight authentication system for SPAs and simple APIs.
+xiaohuyun xhysanctum provides a featherweight authentication system for SPAs and simple APIs.
 
 ## Official Documentation
 
@@ -25,7 +20,7 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 ## Security Vulnerabilities
 
-Please review [our security policy](https://github.com/laravel/sanctum/security/policy) on how to report security vulnerabilities.
+Please review [our security policy](https://github.com/feng2009/xhysanctum/security/policy) on how to report security vulnerabilities.
 
 ## License
 
