@@ -10,7 +10,7 @@ class NewAccessToken implements Arrayable, Jsonable
     /**
      * The access token instance.
      *
-     * @var \Xiaohuyun\xhysanctum\PersonalAccessToken
+     * @var \Xiaohuyun\xhysanctum\XiaohuyunAccessTokens
      */
     public $accessToken;
 
@@ -24,11 +24,11 @@ class NewAccessToken implements Arrayable, Jsonable
     /**
      * Create a new access token result.
      *
-     * @param  \Xiaohuyun\xhysanctum\PersonalAccessToken  $accessToken
+     * @param  \Xiaohuyun\xhysanctum\XiaohuyunAccessTokens  $accessToken
      * @param  string  $plainTextToken
      * @return void
      */
-    public function __construct(PersonalAccessToken $accessToken, string $plainTextToken)
+    public function __construct(XiaohuyunAccessTokens $accessToken, string $plainTextToken)
     {
         $this->accessToken = $accessToken;
         $this->plainTextToken = $plainTextToken;

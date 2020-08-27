@@ -20,8 +20,8 @@ trait HasApiTokens
      */
     public function tokens($id = 'id')
     {
-        $id=$id;
-        return $this->morphMany(Sanctum::$personalAccessTokenModel, 'tokenable',null,null,$id);
+       
+        return $this->morphMany(Sanctum::$XiaohuyunAccessTokensModel, 'tokenable',null,null,$id);
     }
 
     /**

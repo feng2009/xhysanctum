@@ -79,10 +79,12 @@ class SanctumServiceProvider extends ServiceProvider
         }
 
         Route::group(['prefix' => config('xhysanctum.prefix', 'xhysanctum')], function () {
+
             Route::get(
                 '/csrf-cookie',
                 CsrfCookieController::class.'@show'
             )->middleware('web');
+           
         });
     }
 
@@ -93,9 +95,12 @@ class SanctumServiceProvider extends ServiceProvider
      */
     protected function configureGuard()
     {
+         
         Auth::resolved(function ($auth) {
             $auth->extend('xhysanctum', function ($app, $name, array $config) use ($auth) {
+
                 return tap($this->createGuard($auth, $config), function ($guard) {
+
                     $this->app->refresh('request', $guard, 'setRequest');
                 });
             });
@@ -111,6 +116,7 @@ class SanctumServiceProvider extends ServiceProvider
      */
     protected function createGuard($auth, $config)
     {
+
         return new RequestGuard(
             new Guard($auth, config('xhysanctum.expiration'), $config['provider']),
             $this->app['request'],
@@ -125,6 +131,7 @@ class SanctumServiceProvider extends ServiceProvider
      */
     protected function configureMiddleware()
     {
+
         $kernel = $this->app->make(Kernel::class);
 
         $kernel->prependToMiddlewarePriority(EnsureFrontendRequestsAreStateful::class);

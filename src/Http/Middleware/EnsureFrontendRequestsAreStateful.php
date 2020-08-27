@@ -21,15 +21,16 @@ class EnsureFrontendRequestsAreStateful
 
         return (new Pipeline(app()))->send($request)->through(static::fromFrontend($request) ? [
             function ($request, $next) {
-                $request->attributes->set('sanctum', true);
+                $request->attributes->set('xhysanctum', true);
 
                 return $next($request);
             },
-            config('sanctum.middleware.encrypt_cookies', \Illuminate\Cookie\Middleware\EncryptCookies::class),
+            config('xhysanctum.middleware.encrypt_cookies', \Illuminate\Cookie\Middleware\EncryptCookies::class),
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
-            config('sanctum.middleware.verify_csrf_token', \Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class),
+            config('xhysanctum.middleware.verify_csrf_token', \Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class),
         ] : [])->then(function ($request) use ($next) {
+         
             return $next($request);
         });
     }
@@ -59,7 +60,7 @@ class EnsureFrontendRequestsAreStateful
         $referer = Str::replaceFirst('http://', '', $referer);
         $referer = Str::endsWith($referer, '/') ? $referer : "{$referer}/";
 
-        $stateful = array_filter(config('sanctum.stateful', []));
+        $stateful = array_filter(config('xhysanctum.stateful', []));
 
         return Str::is(Collection::make($stateful)->map(function ($uri) {
             return trim($uri).'/*';

@@ -3,9 +3,9 @@
 namespace Xiaohuyun\xhysanctum;
 
 use Illuminate\Database\Eloquent\Model;
-use Xiaohuyun\Sanctum\Contracts\HasAbilities;
+use Xiaohuyun\xhysanctum\Contracts\HasAbilities;
 
-class PersonalAccessToken extends Model implements HasAbilities
+class XiaohuyunAccessTokens extends Model implements HasAbilities
 {
     /**
      * The attributes that should be cast to native types.

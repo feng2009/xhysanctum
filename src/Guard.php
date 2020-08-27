@@ -51,14 +51,16 @@ class Guard
      */
     public function __invoke(Request $request)
     {
+
         if ($user = $this->auth->guard(config('xhysanctum.guard', 'web'))->user()) {
+
             return $this->supportsTokens($user)
                         ? $user->withAccessToken(new TransientToken)
                         : $user;
         }
 
         if ($token = $request->bearerToken()) {
-            $model = Sanctum::$personalAccessTokenModel;
+            $model = Sanctum::$XiaohuyunAccessTokensModel;
 
             $accessToken = $model::findToken($token);
 
@@ -66,10 +68,12 @@ class Guard
                 ($this->expiration &&
                  $accessToken->created_at->lte(now()->subMinutes($this->expiration))) ||
                 ! $this->hasValidProvider($accessToken->tokenable)) {
+
                 return;
             }
 
             return $this->supportsTokens($accessToken->tokenable) ? $accessToken->tokenable->withAccessToken(
+
                 tap($accessToken->forceFill(['last_used_at' => now()]))->save()
             ) : null;
         }
@@ -83,6 +87,7 @@ class Guard
      */
     protected function supportsTokens($tokenable = null)
     {
+
         return $tokenable && in_array(HasApiTokens::class, class_uses_recursive(
             get_class($tokenable)
         ));

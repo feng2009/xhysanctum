@@ -11,7 +11,7 @@ class Sanctum
      *
      * @var string
      */
-    public static $personalAccessTokenModel = 'Xiaohuyun\\Sanctum\\PersonalAccessToken';
+    public static $XiaohuyunAccessTokensModel = 'Xiaohuyun\\xhysanctum\\XiaohuyunAccessTokens';
 
     /**
      * Indicates if Sanctum's migrations will be run.
@@ -30,7 +30,7 @@ class Sanctum
      */
     public static function actingAs($user, $abilities = [], $guard = 'xhysanctum')
     {
-        $token = Mockery::mock(self::personalAccessTokenModel())->shouldIgnoreMissing(false);
+        $token = Mockery::mock(self::XiaohuyunAccessTokensModel())->shouldIgnoreMissing(false);
 
         if (in_array('*', $abilities)) {
             $token->shouldReceive('can')->withAnyArgs()->andReturn(true);
@@ -59,9 +59,9 @@ class Sanctum
      * @param  string  $model
      * @return void
      */
-    public static function usePersonalAccessTokenModel($model)
+    public static function useXiaohuyunAccessTokensModel($model)
     {
-        static::$personalAccessTokenModel = $model;
+        static::$XiaohuyunAccessTokensModel = $model;
     }
 
     /**
@@ -91,8 +91,8 @@ class Sanctum
      *
      * @return string
      */
-    public static function personalAccessTokenModel()
+    public static function XiaohuyunAccessTokensModel()
     {
-        return static::$personalAccessTokenModel;
+        return static::$XiaohuyunAccessTokensModel;
     }
 }
